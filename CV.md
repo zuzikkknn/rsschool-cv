@@ -16,3 +16,11 @@ I decided to get new skills, namely the area of frontend. Very interesting topic
 
 console.log(fibonacci(4))
 ```
+## Skills: 
+* HTML
+* CSS
+* Adobe Premiere Pro
+* Adobe Audition
+## Education: 
+* Crimean Institute of Business 2014
+* Simferopol College of Railway Transport 2008
