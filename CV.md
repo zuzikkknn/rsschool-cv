@@ -24,3 +24,7 @@ console.log(fibonacci(4))
 ## Education: 
 * Crimean Institute of Business 2014
 * Simferopol College of Railway Transport 2008
+## Languages: 
+* Russian
+* English (elementary)
+* Turkish B-1
