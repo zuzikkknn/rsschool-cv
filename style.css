@@ -128,6 +128,7 @@
     justify-content: space-between;
    min-height: 100%;
 
+
    /**
      Унифицированный интерлиньяж
     */
@@ -159,10 +160,15 @@
      scroll-behavior: auto !important;
    }
  }
- 
 
 
+ a {
+    color: #423737;
+    text-decoration: none;
+  }
   
+
+
   
 
   @font-face {
@@ -171,7 +177,7 @@
   }
 
 .header {
-
+background-color: bisque;
     
   }
 
@@ -183,3 +189,27 @@
    
 
 }
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.header .container {
+display: flex;
+justify-content: flex-end;
+align-items: center;
+}
+.nav-list {
+    list-style: none;
+    display: flex;
+    margin-right: 60px;
+
+}
+
+.nav-link {
+    padding: 0 20px;
+    line-height: 50px;
+    transition: 0.3s;
+}
+
+
