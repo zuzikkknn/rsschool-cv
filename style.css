@@ -400,3 +400,51 @@ padding-right: 240px;
 
 
 
+.education {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  box-sizing: border-box;
+  margin: 10px 80px ;
+  padding: 0;
+}
+
+.container-education {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  
+}
+
+
+.container-languages {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  padding-right: 360px;
+}
+
+.education-list {
+  list-style:circle;
+  padding-top: 30px;
+}
+
+.languages-list {
+list-style:square;
+padding-top: 30px;
+padding-left: 10px;
+}
+
+.heading-education {
+  margin-right: 70px;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  padding-right:180px;
+}
+
+.heading-languages {
+  padding-right: 70px;
+}
