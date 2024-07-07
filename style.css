@@ -168,6 +168,17 @@ a {
   
 }
 
+.footer {
+height: 50px;
+  background-color: rgb(229, 205, 175);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  
+}
+
 .main {
   flex:1;
   background-color: rgba(179, 206, 211, 0.278);
@@ -447,4 +458,28 @@ padding-left: 10px;
 
 .heading-languages {
   padding-right: 70px;
+}
+
+
+
+
+.container-git {
+  display: flex;
+  align-items: center;
+}
+
+.my-git {
+  font-weight: 700;
+  color:#423737;
+}
+
+.container-year {
+  color:#423737;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.logo {
+  color: #423737;
+  width: 70px;
 }
