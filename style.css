@@ -173,8 +173,7 @@ a {
   background-color: rgba(179, 206, 211, 0.278);
 }
 
-.footer {
-}
+
 .container {
   max-width: 1440px;
 }
@@ -312,5 +311,92 @@ padding-bottom: 55px;
 .paragraph-summary {
   padding-top: 17px;
 }
+
+.skills {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  box-sizing: border-box;
+  margin: 10px 80px ;
+  padding: 0;
+}
+
+
+
+.skills-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 70px;
+  margin-left: 50px;
+
+}
+
+.skills-list li {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.skills-list li::before {
+  content: ''; 
+  position: absolute;
+  left: -25px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+}
+
+.skills-list .skills-item_1::before {
+  background-image: url('./assets/icons/html5.png');
+}
+
+.skills-list .skills-item_2::before {
+  background-image: url('./assets/icons/css3-.png');
+}
+
+.skills-list .skills-item_3::before {
+  background-image: url('./assets/icons/adobe_premiere_icon_132615.png');
+}
+.skills-list .skills-item_4::before {
+  background-image: url('./assets/icons/adobe_audition_icon_191042.png');
+}
+
+
+
+.skills {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  box-sizing: border-box;
+  margin: 10px 80px ;
+  padding: 0;
+}
+
+.container-skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+padding-right: 240px;
+
+}
+.container-code {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  padding-right: 330px;
+}
+
+.code {
+  padding-top: 17px;
+}
+
+.heading-skills {
+  margin-left: 30px;
+}
+
 
 
