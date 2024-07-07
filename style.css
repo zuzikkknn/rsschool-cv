@@ -1,0 +1,485 @@
+/**
+  Нормализация блочной модели
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
+p {
+  --paragraphMarginBottom: 24px;
+
+  margin-block: 0;
+}
+
+/**
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+   Упрощаем работу с изображениями
+  */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+   Наследуем свойства шрифт для полей ввода
+  */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+  height: 100%;
+}
+
+/**
+   Плавный скролл
+  */
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  min-height: 100%;
+
+  /**
+     Унифицированный интерлиньяж
+    */
+  line-height: 1.5;
+}
+
+/**
+   Приводим к единому цвету svg-элементы
+  */
+svg *[fill] {
+  fill: currentColor;
+}
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+/**
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+a {
+  color: #423737;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "Calibri", sans-serif;
+  src: url(./assets/fonts/Calibri.woff2);
+}
+
+.header {
+  background-color: rgb(229, 205, 175);
+  
+}
+
+.footer {
+height: 50px;
+  background-color: rgb(229, 205, 175);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  
+}
+
+.main {
+  flex:1;
+  background-color: rgba(179, 206, 211, 0.278);
+}
+
+
+.container {
+  max-width: 1440px;
+}
+
+.header .container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.nav-list {
+  list-style: none;
+  display: flex;
+  margin-right: 60px;
+}
+
+.nav-link {
+  padding: 0 20px;
+  line-height: 50px;
+  transition: 0.3s;
+}
+
+.avatar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  box-sizing: border-box;
+  margin: 10px 80px ;
+  padding: 0;
+}
+
+.container-avatar {
+  width: 200px;
+  height: 200px;
+  margin: 8px;
+  box-shadow: 0 0 16px rgb(63, 62, 62);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.my-name {
+  color: #423737;
+}
+
+
+.line-1 {
+  height: 9px;
+  background-color: #42373770;
+ margin: 15px 100px 30px 100px;
+}
+
+.line-2 {
+  height: 5px;
+  background-color: #42373770;
+ margin: 30px 100px 30px 100px;
+}
+
+.my-name {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+.contacts-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+  margin-left: 50px;
+
+}
+
+.contacts-list li {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.contacts-list li::before {
+  content: ''; 
+  position: absolute;
+  left: -25px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+}
+
+.contacts-list .email-item::before {
+  background-image: url('./assets/icons/1490129331-rounded07_82197.png');
+}
+
+.contacts-list .github-item::before {
+  background-image: url('./assets/icons/github_git_icon_145985.png');
+}
+
+.contacts-list .telegramm-item::before {
+  background-image: url('./assets/icons/telegram_icon_131945.png');
+}
+.contacts-list .discord-item::before {
+  background-image: url('./assets/icons/discord_icon_136688.png');
+}
+
+
+.information {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  box-sizing: border-box;
+  margin: 10px 80px ;
+  padding: 0;
+}
+
+.container-contacts {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+}
+.container-summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.heading-summary {
+padding-bottom: 55px;
+}
+
+.heading-contacts {
+  margin-left: 30px;
+}
+
+.paragraph-summary {
+  padding-top: 17px;
+}
+
+.skills {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  box-sizing: border-box;
+  margin: 10px 80px ;
+  padding: 0;
+}
+
+
+
+.skills-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 70px;
+  margin-left: 50px;
+
+}
+
+.skills-list li {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.skills-list li::before {
+  content: ''; 
+  position: absolute;
+  left: -25px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+}
+
+.skills-list .skills-item_1::before {
+  background-image: url('./assets/icons/html5.png');
+}
+
+.skills-list .skills-item_2::before {
+  background-image: url('./assets/icons/css3-.png');
+}
+
+.skills-list .skills-item_3::before {
+  background-image: url('./assets/icons/adobe_premiere_icon_132615.png');
+}
+.skills-list .skills-item_4::before {
+  background-image: url('./assets/icons/adobe_audition_icon_191042.png');
+}
+
+
+
+.skills {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  box-sizing: border-box;
+  margin: 10px 80px ;
+  padding: 0;
+}
+
+.container-skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+padding-right: 240px;
+
+}
+.container-code {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  padding-right: 330px;
+}
+
+.code {
+  padding-top: 17px;
+}
+
+.heading-skills {
+  margin-left: 30px;
+}
+
+
+
+.education {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  box-sizing: border-box;
+  margin: 10px 80px ;
+  padding: 0;
+}
+
+.container-education {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  
+}
+
+
+.container-languages {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  padding-right: 360px;
+}
+
+.education-list {
+  list-style:circle;
+  padding-top: 30px;
+}
+
+.languages-list {
+list-style:square;
+padding-top: 30px;
+padding-left: 10px;
+}
+
+.heading-education {
+  margin-right: 70px;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  padding-right:180px;
+}
+
+.heading-languages {
+  padding-right: 70px;
+}
+
+
+
+
+.container-git {
+  display: flex;
+  align-items: center;
+}
+
+.my-git {
+  font-weight: 700;
+  color:#423737;
+}
+
+.container-year {
+  color:#423737;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.logo {
+  color: #423737;
+  width: 70px;
+}
